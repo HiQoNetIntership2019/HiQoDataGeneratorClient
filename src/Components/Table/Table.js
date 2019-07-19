@@ -4,13 +4,15 @@ import CheckBox from '../CheckBox/CheckBox';
 import DropDown from '../DropDown/DropDown';
 import './style.css';
 
+import FieldTypesContainer from './FieldTypes/FieldTypesContainer.jsx';
+
 class Table extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render(){
-    return (   
+    return (
         <table className="table table-bordered table-hover">
         <thead>
             <tr>
@@ -24,11 +26,11 @@ class Table extends React.Component {
             <tr>
             <td>1</td>
             <td><Input/></td>
-            <td><DropDown/></td>
+            <td><FieldTypesContainer /></td>
             <td><CheckBox/></td>
             </tr>
         </tbody>
-        </table>   
+        </table>
     );
   }
 }
