@@ -1,13 +1,14 @@
 import React from 'react';
+import Header from './Components/Header/Header';
+import Table from './Components/Table/Table';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Learn React
-        </p>
-      </header>
+    <div>
+      <div className="container">    
+        <Header>Data Generator</Header>  
+        <Table/>   
+      </div>
     </div>
   );
 }
