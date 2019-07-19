@@ -4,3 +4,9 @@
     border-color : #ced4da;
     width: 100%;
 }
+
+.scrollable-menu {
+    height: auto;
+    max-height: 400%;
+    overflow-x: hidden;
+}

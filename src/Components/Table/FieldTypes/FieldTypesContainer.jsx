@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DropDown from '../../DropDown/DropDown';
 import { setFieldType } from '../../../store/table/fieldtypes/actions';
+import axios from 'axios';
 
 class FieldTypesContainer extends React.Component {
   constructor(props){
@@ -22,9 +23,13 @@ class FieldTypesContainer extends React.Component {
   }
 
   componentDidMount(){
-    fetch(this.props.allFieldsAPI)
-      .then(response => response.json())
-      .then(data => this.setState({fields: data}));
+    axios.get(this.props.allFieldsAPI)
+    .then(response => {
+      this.setState({ fields : response.data });
+    })
+    .catch(error  => {
+      console.log(error);
+    });
   }
 }
 

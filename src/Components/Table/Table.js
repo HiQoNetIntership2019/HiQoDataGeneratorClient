@@ -5,6 +5,7 @@ import DropDown from '../DropDown/DropDown';
 import './style.css';
 
 import FieldTypesContainer from './FieldTypes/FieldTypesContainer.jsx';
+import ConstraintsContainer from './Constraints/ConstraintsContainer.jsx'
 
 class Table extends React.Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class Table extends React.Component {
             <th>№</th>
             <th>FieldName</th>
             <th>Type</th>
+            <th>Constraint</th>
             <th>IsRequired</th>
             </tr>
         </thead>
@@ -27,6 +29,7 @@ class Table extends React.Component {
             <td>1</td>
             <td><Input/></td>
             <td><FieldTypesContainer /></td>
+            <td><ConstraintsContainer/></td>
             <td><CheckBox/></td>
             </tr>
         </tbody>
