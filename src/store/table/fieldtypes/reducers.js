@@ -1,7 +1,7 @@
 import { CHANGE_FIELD_TYPES } from "./actions";
 
 const defaultState = {
-  typeName: null
+  fieldType: null
 }
 
 export const fieldTypesReducer = (state = defaultState, action) => {
@@ -9,7 +9,7 @@ export const fieldTypesReducer = (state = defaultState, action) => {
    case CHANGE_FIELD_TYPES:
      return {
        ...state,
-       typeName: action.payload
+       fieldType: action.payload
      }
 
    default:
