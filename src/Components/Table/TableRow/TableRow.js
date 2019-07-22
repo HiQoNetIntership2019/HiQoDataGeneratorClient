@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Input from '../../Input/Input';
 import CheckBox from '../../CheckBox/CheckBox';
 import FieldTypesContainer from '../FieldTypes/FieldTypesContainer.jsx';
+import DatasetsContainer from '../Datasets/DatasetsContainer.jsx';
 import RoundButton from '../../RoundButton/RoundBotton';
 import './style.css';
 
@@ -25,8 +26,14 @@ class TableRow extends React.Component {
                 </h2>
               }
             </td>
-            <td className="col-2"></td>
-            <td><RoundButton  onClick={this.props.onDelete}><i className="fa fa-times" aria-hidden="true"/></RoundButton></td>
+            <td className="col-2">
+              <DatasetsContainer id={this.props.id}/>
+            </td>
+            <td>
+              <RoundButton onClick={this.props.onDelete}>
+                <i className="fa fa-times" aria-hidden="true"/>
+              </RoundButton>
+            </td>
         </tr>
     );
   }
