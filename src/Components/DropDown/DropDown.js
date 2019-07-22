@@ -14,7 +14,7 @@ export default function DropDown(props) {
 
   return (
     <div className="dropdown field-types-btn">
-      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown">
         { currentItem ? currentItem : defaultItem ? defaultItem : "Drop Down" }
       </button>
       <div className="dropdown-menu">
