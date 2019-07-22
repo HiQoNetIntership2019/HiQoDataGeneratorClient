@@ -12,10 +12,11 @@ class FieldTypesContainer extends React.Component {
   }
 
   render(){
-    let currentType = this.props.currentType;
+    console.log(this.props.id);
+    console.log(this.props.currentTypes);
     return (
-      <DropDown selectItem={item => this.props.setFieldType(item)}
-        currentItem={currentType ? currentType.name : null}
+      <DropDown selectItem={item => this.props.setFieldType(item.name,this.props.id)}
+        currentItem={this.props.currentTypes.get(this.props.id)}
         items={this.state.fields}
         defaultItem="Field types" />
     );
@@ -30,7 +31,7 @@ class FieldTypesContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentType: state.fieldTypes.fieldType,
+    currentTypes: state.fieldTypes.typeNames,
     allFieldsAPI: state.hostInfo.HOST_NAME + state.hostInfo.API_FOR_ALL_TYPES
   }
 };

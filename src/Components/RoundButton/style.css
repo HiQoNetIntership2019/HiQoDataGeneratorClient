@@ -1,0 +1,18 @@
+.btn-circle {
+    padding: 0;
+    width: 2.4rem;
+    height: 2.4rem;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 50%;
+}
+
+.btn-circle.btn-mid {
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50%;
+}
+  
