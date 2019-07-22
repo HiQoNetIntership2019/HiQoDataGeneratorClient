@@ -1,15 +1,15 @@
 .table thead tr th {
+    border: 1px solid black;
+    background-color: black;
     border-bottom: 0;
 }
 
-.table thead th, .table tbody td {
+.table thead th{
     text-align: center;
-    border-color: black; 
     vertical-align: middle;
 }
 
-.table thead {
-    background-color: black;
+.table thead {    
     color:white;
 }
 
@@ -20,15 +20,11 @@ table tr:first-child th:first-child {
 table tr:first-child th:last-child {
     border-top-right-radius: 10px;
 }
-  
-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
-}
-  
-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
+ 
+table tr td:last-child {
+    border: none;
 }
 
-.container {
-    width: 90%;
+.addbtn {
+    margin-bottom: 20px;
 }

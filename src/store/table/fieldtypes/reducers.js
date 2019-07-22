@@ -1,7 +1,7 @@
 import { CHANGE_FIELD_TYPES } from "./actions";
 
 const defaultState = {
-  fieldType: null
+  typeNames: new Map()
 }
 
 export const fieldTypesReducer = (state = defaultState, action) => {
@@ -9,7 +9,7 @@ export const fieldTypesReducer = (state = defaultState, action) => {
    case CHANGE_FIELD_TYPES:
      return {
        ...state,
-       fieldType: action.payload
+       typeNames: new Map(state.typeNames).set(action.payload.fieldId, action.payload.typeName)
      }
 
    default:

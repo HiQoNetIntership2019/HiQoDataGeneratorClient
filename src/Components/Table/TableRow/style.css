@@ -1,0 +1,16 @@
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table tbody tr td {
+    border: 1px solid black;
+}
+ 
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+ 
+table tr:last-child td:nth-last-child(2) {
+    border-bottom-right-radius: 10px;    
+}
