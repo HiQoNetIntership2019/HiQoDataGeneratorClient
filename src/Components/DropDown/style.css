@@ -8,3 +8,9 @@
 .dropdown-menu {
     width: 100%;
 }
+
+.scrollable-menu {
+    height: auto;
+    max-height: 8em;
+    overflow-x: hidden;
+}

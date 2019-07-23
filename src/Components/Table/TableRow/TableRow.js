@@ -5,6 +5,7 @@ import Input from '../../Input/Input';
 import CheckBox from '../../CheckBox/CheckBox';
 import FieldTypesContainer from '../FieldTypes/FieldTypesContainer.jsx';
 import DatasetsContainer from '../Datasets/DatasetsContainer.jsx';
+import ConstraintsContainer from '../Constraints/ConstraintsContainer.jsx';
 import RoundButton from '../../RoundButton/RoundBotton';
 import './style.css';
 
@@ -22,6 +23,7 @@ class TableRow extends React.Component {
             <td className="col-2"><FieldTypesContainer id={this.props.id}/></td>
             <td className="col-1"><CheckBox checked={data.isNotNull} onChange={()=>this.props.modifyField(this.props.id, data.name, !data.isNotNull)}/></td>
             <td className="col-3">
+              <ConstraintsContainer id={this.props.id}/>
             </td>
             <td className="col-2">
               <DatasetsContainer id={this.props.id}/>
