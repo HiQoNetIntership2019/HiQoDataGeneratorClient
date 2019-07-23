@@ -2,15 +2,18 @@ import React from 'react';
 import TableRow from './TableRow/TableRow';
 import './style.css';
 
+import FieldTypesContainer from './FieldTypes/FieldTypesContainer.jsx';
+import DatasetsContainer from './Datasets/DatasetsContainer.jsx';
+
 class Table extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       rows : [{id:1}],
       rowsCounter : 1
-    } 
+    }
   }
-  
+
   addRow(){
     var newRows = [...this.state.rows];
     newRows.push({id: this.state.rowsCounter+1});
@@ -58,9 +61,9 @@ class Table extends React.Component {
           <tbody>
             {this.generateBody()}
           </tbody>
-        </table> 
+        </table>
         <button type="button" onClick={() => this.addRow()} className="btn btn-success btn-lg btn-block addbtn">Add</button>
-      </div>     
+      </div>
     );
   }
 }

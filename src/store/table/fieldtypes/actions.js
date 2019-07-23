@@ -1,6 +1,6 @@
 export const CHANGE_FIELD_TYPES = "CHANGE_FIELD_TYPES";
 
-export const setFieldType = (typeName, fieldId) => ({
+export const setFieldType = (fieldType, fieldId) => ({
   type: CHANGE_FIELD_TYPES,
-  payload: { typeName, fieldId }
+  payload: { fieldType, fieldId }
 });
