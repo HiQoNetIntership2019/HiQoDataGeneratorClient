@@ -24,7 +24,12 @@ class FieldTypesContainer extends React.Component {
 
   componentDidMount(){
     axios.get(this.props.allFieldsAPI)
-      .then(response => this.setState({fields: response.data}));
+    .then(response => {
+      this.setState({ fields : response.data });
+    })
+    .catch(error  => {
+      console.log(error);
+    });
   }
 }
 

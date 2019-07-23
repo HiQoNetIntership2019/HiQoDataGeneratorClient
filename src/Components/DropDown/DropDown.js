@@ -17,7 +17,7 @@ export default function DropDown(props) {
       <button type="button" className="btn btn-primary dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown">
         { currentItem ? currentItem : defaultItem ? defaultItem : "Drop Down" }
       </button>
-      <div className="dropdown-menu">
+      <div className="dropdown-menu scrollable-menu">
         { items }
       </div>
     </div>
