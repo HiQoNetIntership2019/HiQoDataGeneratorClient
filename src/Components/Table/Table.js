@@ -1,45 +1,35 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { addField, removeField } from '../../store/table/fields/actions';
+import { removeFieldType } from '../../store/table/fieldtypes/actions';
 import TableRow from './TableRow/TableRow';
 import './style.css';
-
-import FieldTypesContainer from './FieldTypes/FieldTypesContainer.jsx';
-import DatasetsContainer from './Datasets/DatasetsContainer.jsx';
 
 class Table extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      rows : [{id:1}],
-      rowsCounter : 1
-    }
   }
 
   addRow(){
-    var newRows = [...this.state.rows];
-    newRows.push({id: this.state.rowsCounter+1});
-
-    this.setState(state => ({
-      rowsCounter: state.rowsCounter+1,
-      rows: newRows
-    }));
+    this.props.addField();
   }
 
   deleteRow(id){
-    if (this.state.rows.length > 1){
-      var newRows = [...this.state.rows].filter(el => el.id != id);
-      this.setState(state => ({
-        rows : newRows
-      }));
+    if (this.props.fields.size > 1){
+      this.props.removeFieldType(id);
+      this.props.removeField(id);
     }
   }
 
   generateBody(){
-    var rows = [];
-    for (let i = 0; i < this.state.rows.length; i++){
+    let rows = [];
+    let index = 1;
+    this.props.fields.forEach(function(value, key) {
       rows.push(
-        <TableRow id={this.state.rows[i].id} index={i+1} onDelete={() => this.deleteRow(this.state.rows[i].id)}/>
+        <TableRow data={value} id={key} index={index} onDelete={() => this.deleteRow(key)}/>
       );
-    }
+      index++;
+    },this);
 
     return rows;
   }
@@ -68,4 +58,16 @@ class Table extends React.Component {
   }
 }
 
-export default Table;
+const mapStateToProps = state => {
+  return {
+    fields: state.fields.fieldsData
+  }
+};
+
+const mapDispatchToProps = {
+  addField,
+  removeField,
+  removeFieldType
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
