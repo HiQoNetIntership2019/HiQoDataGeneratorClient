@@ -1,0 +1,12 @@
+.object-info-container {
+  margin: 1em 0;
+}
+
+.object-info-container > div {
+  margin: 0.5em 0;
+  width: 100%;
+}
+
+.object-info-container > div > input {
+  width: 75%;
+}

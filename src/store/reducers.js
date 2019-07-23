@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import { fieldTypesReducer } from './table/fieldtypes/reducers';
 import { datasetsReducer } from './table/datasets/reducers';
-
+import { objectInfoReducer } from './object-info/reducers';
 
 import {
   HOST_NAME,
@@ -24,5 +24,6 @@ const hostInfoReducer = (state = defaultHostInfoReducer, action) => {
 export default combineReducers({
     fieldTypes: fieldTypesReducer,
     hostInfo: hostInfoReducer,
-    datasets: datasetsReducer
+    datasets: datasetsReducer,
+    objectInfo: objectInfoReducer
 });
