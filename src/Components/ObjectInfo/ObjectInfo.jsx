@@ -15,16 +15,16 @@ export default class ObjectInfo extends React.Component {
       <div className="flex-wrap flex-row row object-info-container">
         <div className="input-group col-12 col-md-6">
           <div className="input-group-prepend">
-            <span className="input-group-text">Name</span>
+            <span className="input-group-text input-label">Object Name</span>
           </div>
-          <input type="text" value={name}
+          <input type="text" className="object-input" value={name}
             onChange={e => changeObjectName(e.target.value)}/>
         </div>
         <div className=" input-group col-12 col-md-6">
           <div className="input-group-prepend">
-            <span className="input-group-text">Count</span>
+            <span className="input-group-text input-label">Objects Count</span>
           </div>
-          <input type="number" value={count}
+          <input type="number" className="object-input" value={count}
             onChange={e => changeObjectsCount(e.target.value)}/>
         </div>
       </div>

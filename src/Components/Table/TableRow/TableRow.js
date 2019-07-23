@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { modifyField } from '../../../store/table/fields/actions';
 import Input from '../../Input/Input';
 import CheckBox from '../../CheckBox/CheckBox';
 import FieldTypesContainer from '../FieldTypes/FieldTypesContainer.jsx';
@@ -13,18 +14,14 @@ class TableRow extends React.Component {
   }
 
   render(){
+    let data = this.props.data;
     return (
         <tr key={this.props.id} className="d-flex">
             <td className="col-1">{this.props.index}</td>
-            <td className="col-3"><Input/></td>
+            <td className="col-3"><Input placeholder="Field Type" value={data.name} onBlur={(value)=>this.props.modifyField(this.props.id, value, data.isNotNull)}/></td>
             <td className="col-2"><FieldTypesContainer id={this.props.id}/></td>
-            <td className="col-1"><CheckBox/></td>
+            <td className="col-1"><CheckBox checked={data.isNotNull} onChange={()=>this.props.modifyField(this.props.id, data.name, !data.isNotNull)}/></td>
             <td className="col-3">
-              {this.props.currentType != null &&
-                <h2>
-                  Here is {this.props.currentType}
-                </h2>
-              }
             </td>
             <td className="col-2">
               <DatasetsContainer id={this.props.id}/>
@@ -41,8 +38,13 @@ class TableRow extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentType: state.fieldTypes.typeName
+    currentTypes: state.fieldTypes.typeNames,
+    fields: state.fields.fieldsData
   }
 };
 
-export default connect(mapStateToProps)(TableRow);
+const mapDispatchToProps = {
+  modifyField
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TableRow);

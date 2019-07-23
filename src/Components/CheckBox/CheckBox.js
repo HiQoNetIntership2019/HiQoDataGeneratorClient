@@ -8,7 +8,7 @@ class CheckBox extends React.Component {
 
   render() {
     return (
-      <input type="checkbox"/>
+      <input type="checkbox" checked={this.props.checked} onChange={this.props.onChange}/>
     );
   }
 }

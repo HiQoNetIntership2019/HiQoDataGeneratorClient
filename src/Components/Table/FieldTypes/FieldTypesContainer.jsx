@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DropDown from '../../DropDown/DropDown';
 import { setFieldType } from '../../../store/table/fieldtypes/actions';
-
 import axios from 'axios';
 
 class FieldTypesContainer extends React.Component {
@@ -15,7 +14,6 @@ class FieldTypesContainer extends React.Component {
 
   render(){
     let currentFieldType = this.props.currentTypes.get(this.props.id);
-
     return (
       <DropDown selectItem={item => this.props.setFieldType(item, this.props.id)}
     	  currentItem={currentFieldType ? currentFieldType.name : null}
