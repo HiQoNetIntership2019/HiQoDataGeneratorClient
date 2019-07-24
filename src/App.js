@@ -1,13 +1,15 @@
 import React from 'react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './store/reducers';
+
 import Header from './Components/Header/Header';
 import Table from './Components/Table/Table';
-
+import GenerationControlContainer from './Components/GenerationControl/GenerationControlContainer.jsx'
 import ObjectInfoContainer from './Components/ObjectInfo/ObjectInfoContainer.jsx';
 
-const store = createStore(rootReducer);
+import store from './store/index';
+
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
         <Header>Data Generator</Header>
         <ObjectInfoContainer />
         <Table/>
+        <GenerationControlContainer />
       </div>
     </Provider>
   );

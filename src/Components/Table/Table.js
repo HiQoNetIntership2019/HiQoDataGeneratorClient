@@ -5,6 +5,7 @@ import { removeFieldType } from '../../store/table/fieldtypes/actions';
 import TableRow from './TableRow/TableRow';
 import './style.css';
 
+
 class Table extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +35,7 @@ class Table extends React.Component {
     return rows;
   }
 
+
   render(){
     return (
       <div>
@@ -52,7 +54,11 @@ class Table extends React.Component {
             {this.generateBody()}
           </tbody>
         </table>
-        <button type="button" onClick={() => this.addRow()} className="btn btn-success btn-lg btn-block addbtn">Add</button>
+          <button type="button"
+            onClick={() => this.addRow()}
+            className="btn-block btn-success btn-lg">
+            Add field
+          </button>
       </div>
     );
   }

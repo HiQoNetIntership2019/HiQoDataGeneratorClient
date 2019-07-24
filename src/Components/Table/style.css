@@ -6,7 +6,7 @@
     vertical-align: middle;
 }
 
-.main-table > thead {    
+.main-table > thead {
     color:white;
 }
 
@@ -17,7 +17,7 @@
 .main-table > thead > tr:first-child > th:last-child {
     border-top-right-radius: 10px;
 }
- 
+
 .addbtn {
     margin-bottom: 20px;
 }
