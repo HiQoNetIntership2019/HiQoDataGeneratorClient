@@ -18,7 +18,7 @@ class TableRow extends React.Component {
     return (
         <tr key={this.props.id} className="d-flex">
             <td className="col-1">{this.props.index}</td>
-            <td className="col-3"><Input placeholder="Field Type" value={data.name} onBlur={(value)=>this.props.modifyField(this.props.id, value, data.isNotNull)}/></td>
+            <td className="col-3"><Input placeholder="Field Name" onBlur={(value)=>this.props.modifyField(this.props.id, value, data.isNotNull)}/></td>
             <td className="col-2"><FieldTypesContainer id={this.props.id}/></td>
             <td className="col-1"><CheckBox checked={data.isNotNull} onChange={()=>this.props.modifyField(this.props.id, data.name, !data.isNotNull)}/></td>
             <td className="col-3">

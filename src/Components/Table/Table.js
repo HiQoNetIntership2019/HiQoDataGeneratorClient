@@ -26,7 +26,7 @@ class Table extends React.Component {
     let index = 1;
     this.props.fields.forEach(function(value, key) {
       rows.push(
-        <TableRow data={value} id={key} index={index} onDelete={() => this.deleteRow(key)}/>
+        <TableRow key={key} data={value} id={key} index={index} onDelete={() => this.deleteRow(key)}/>
       );
       index++;
     },this);
@@ -37,7 +37,7 @@ class Table extends React.Component {
   render(){
     return (
       <div>
-        <table className="table table-hover">
+        <table className="table main-table table-hover">
           <thead>
             <tr className="d-flex">
               <th className="col-1">№</th>
