@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Input extends React.Component {
+class InputWithLabel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,13 +15,16 @@ class Input extends React.Component {
 
   render() {
     return (
-      <div className="input-group">
+      <div className="input-group mb-3">
+        <div className="input-group-prepend">
+          <span className="input-group-text" id="inputGroup-sizing-default">{this.props.label}</span>
+        </div>
         <input type="text" className="form-control" placeholder={this.props.placeholder} 
           value={this.state.inputValue} 
           onChange={this.updateInputValue} 
           onBlur={()=> this.props.onBlur(this.state.inputValue)}
         />
-      </div>    
+      </div>   
     );
   }
 
@@ -34,4 +37,4 @@ class Input extends React.Component {
   }
 }
 
-export default Input;
+export default InputWithLabel;

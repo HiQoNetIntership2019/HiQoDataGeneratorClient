@@ -1,0 +1,7 @@
+.newBtn {
+    margin-top: 1rem;
+}
+
+.modal-table > thead{
+    pointer-events:none;
+}
