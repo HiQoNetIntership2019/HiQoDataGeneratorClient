@@ -1,5 +1,6 @@
 import React from 'react';
-import ListEntry from './ListEntry';
+import ListEntryContainer from './ListEntryContainer';
+import { inputTypes } from '../../../constants/ConstantsForConstraintTypes';
 
 class InputList extends React.Component {
   constructor(props) {
@@ -7,7 +8,16 @@ class InputList extends React.Component {
   }
 
   render() {
-    let entries = this.props.items.map(item => <ListEntry key={item.id} id={this.props.id} label={item.name} changeValue={(value) => this.props.changeValue(item, value)} removeValue={() => this.props.removeValue(item)}/>)
+    let entries = this.props.items.map(item => 
+      <ListEntryContainer 
+        key={item.id} 
+        id={this.props.id} 
+        constraint = {item}
+        removeValue={() => this.props.removeValue(item)} 
+        isIncluded={item.isIncluded}
+        inputType={inputTypes.get(item.name)}
+        optionsCategory={item.name}/>
+    );
     return (
       <div>
         {entries}
