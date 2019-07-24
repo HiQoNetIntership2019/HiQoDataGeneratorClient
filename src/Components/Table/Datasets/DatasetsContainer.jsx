@@ -1,34 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import DropDown from '../../DropDown/DropDown';
+import CustomDatasetContainer from './CustomDatasetContainer/CustomDatasetContainer'
 import { setDataset } from '../../../store/table/datasets/actions';
-
 import axios from 'axios';
 
 class DatasetsContainer extends React.Component {
   constructor(props){
     super(props);
-    this.state = { constraints: [] }
+    this.state = { datasets: [] }
   }
 
   render() {
     let currentDataset = this.props.currentDataset.get(this.props.id);
 
     return (
-      <DropDown
-        selectedItem={item => this.props.setDataset(item, this.props.id)}
-        currentItem={currentDataset ? currentDataset : null}
-        items={this.state.constraints}
-        defaultItem="Datasets"
-        />
+      <div>
+        <DropDown
+          selectedItem={item => this.props.setDataset(item, this.props.id)}
+          currentItem={currentDataset ? currentDataset : null}
+          items={this.state.datasets}
+          defaultItem="Datasets"
+          />
+          <CustomDatasetContainer id={this.props.id}/>
+      </div>
     );
   }
-
 
   componentWillReceiveProps(nextProps){
   if (nextProps.currentType){
     axios.get(nextProps.datasetForTypeAPI + nextProps.currentType.id)
-      .then(response => this.setState({constraints: response.data}))
+      .then(response => this.setState({datasets: response.data}))
     }
   }
 }

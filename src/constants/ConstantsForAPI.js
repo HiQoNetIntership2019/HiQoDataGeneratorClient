@@ -5,3 +5,4 @@ export const API_FOR_ALL_CONSTRAINTS = '/api/Constraints';
 export const API_FOR_CONSTRAINTS_BY_FIELD_TYPE = '/api/Constraints/fieldtype/';
 export const API_FOR_ALL_ENCODINGS = '/api/EncodingType';
 export const API_FOR_DATETIMEFORMATS = '/api/DateTimeFormats';
+export const API_FOR_CUSTOM_DATASETS = '/api/customdatasets/withId';
