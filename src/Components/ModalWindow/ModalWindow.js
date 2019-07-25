@@ -19,6 +19,7 @@ class ModalWindow extends React.Component {
         let needToClose = true;
         if (this.props.onSubmit != undefined){
             needToClose = this.props.onSubmit();
+            console.log("after submit "+needToClose);
         }
         if (needToClose){
             $("#"+this.props.id).modal("hide");

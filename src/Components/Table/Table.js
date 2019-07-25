@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addField, removeField } from '../../store/table/fields/actions';
 import { removeFieldType } from '../../store/table/fieldtypes/actions';
+import { removeDataset } from '../../store/table/datasets/actions';
 import TableRow from './TableRow/TableRow';
 import './style.css';
 
@@ -19,6 +20,7 @@ class Table extends React.Component {
     if (this.props.fields.size > 1){
       this.props.removeFieldType(id);
       this.props.removeField(id);
+      this.props.removeDataset(id);
     }
   }
 
@@ -46,19 +48,15 @@ class Table extends React.Component {
               <th className="col-3">Name</th>
               <th className="col-2">Type</th>
               <th className="col-1">NotNull</th>
-              <th className="col-3">Constraints</th>
               <th className="col-2">Datasets</th>
+              <th className="col-3">Constraints</th>
             </tr>
           </thead>
           <tbody>
             {this.generateBody()}
           </tbody>
         </table>
-          <button type="button"
-            onClick={() => this.addRow()}
-            className="btn-block btn-success btn-lg">
-            Add field
-          </button>
+        <button type="button" onClick={() => this.addRow()} className="btn btn-success btn-lg btn-block addbtn">Add</button>
       </div>
     );
   }
@@ -73,7 +71,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   addField,
   removeField,
-  removeFieldType
+  removeFieldType,
+  removeDataset
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

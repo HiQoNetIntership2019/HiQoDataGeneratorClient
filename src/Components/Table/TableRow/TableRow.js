@@ -16,17 +16,21 @@ class TableRow extends React.Component {
 
   render(){
     let data = this.props.data;
+    const currentDataset = this.props.currentDatasets.get(this.props.id);
+    
     return (
         <tr key={this.props.id} className="d-flex">
             <td className="col-1">{this.props.index}</td>
             <td className="col-3"><Input placeholder="Field Name" onBlur={(value)=>this.props.modifyField(this.props.id, value, data.isNotNull)}/></td>
             <td className="col-2"><FieldTypesContainer id={this.props.id}/></td>
             <td className="col-1"><CheckBox checked={data.isNotNull} onChange={()=>this.props.modifyField(this.props.id, data.name, !data.isNotNull)}/></td>
-            <td className="col-3">
-              <ConstraintsContainer id={this.props.id}/>
-            </td>
             <td className="col-2">
               <DatasetsContainer id={this.props.id}/>
+            </td>
+            <td className="col-3">
+              {currentDataset === undefined &&
+                <ConstraintsContainer id={this.props.id}/>
+              }
             </td>
             <td>
               <RoundButton onClick={this.props.onDelete}>
@@ -40,7 +44,7 @@ class TableRow extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    currentTypes: state.fieldTypes.typeNames,
+    currentDatasets: state.datasets.currentDatasets,
     fields: state.fields.fieldsData
   }
 };

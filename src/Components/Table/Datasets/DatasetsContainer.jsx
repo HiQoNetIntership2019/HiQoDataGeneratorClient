@@ -2,36 +2,47 @@ import React from 'react';
 import { connect } from 'react-redux';
 import DropDown from '../../DropDown/DropDown';
 import CustomDatasetContainer from './CustomDatasetContainer/CustomDatasetContainer'
-import { setDataset } from '../../../store/table/datasets/actions';
+import { removeDataset, setDataset } from '../../../store/table/datasets/actions';
 import axios from 'axios';
 
 class DatasetsContainer extends React.Component {
   constructor(props){
     super(props);
-    this.state = { datasets: [] }
+    this.state = {
+      datasets: [{id: 0, name: "None"}] 
+    }
   }
 
   render() {
-    let currentDataset = this.props.currentDatasets.get(this.props.id);
-
+    const currentDataset = this.props.currentDatasets.get(this.props.id);
+    const currentType = this.props.currentFieldTypes.get(this.props.id);
     return (
       <div>
         <DropDown
-          selectedItem={item => this.props.setDataset(item, this.props.id)}
-          currentItem={currentDataset ? currentDataset : null}
+          selectItem={item => { item.id == 0 ? this.props.removeDataset(this.props.id) : this.props.setDataset(item, this.props.id) }}
+          currentItem={currentDataset ? currentDataset.name : null}
           items={this.state.datasets}
-          defaultItem="Datasets"
+          defaultItem="None"
           />
-          <CustomDatasetContainer id={this.props.id}/>
+          {currentType && (currentType.name.toLowerCase() === "string" || currentType.name.toLowerCase() === "enum") &&
+            <CustomDatasetContainer id={this.props.id}/> 
+          }
       </div>
     );
   }
 
   componentWillReceiveProps(nextProps){
-    let currentType = nextProps.currentFieldTypes.get(this.props.id)
-    if (currentType){
-      axios.get(nextProps.datasetForTypeAPI + currentType.id)
-        .then(response => this.setState({constraints: response.data}));
+    let newType = nextProps.currentFieldTypes.get(this.props.id);
+    let currentType = this.props.currentFieldTypes.get(this.props.id);
+
+    if (newType && newType !== currentType){
+      this.props.removeDataset(this.props.id);
+      axios.get(nextProps.datasetForTypeAPI + newType.id)
+        .then(response => this.setState({datasets: [{id: 0, name: "None"},...response.data]}))
+        .catch((error)=>{
+          console.log(error);
+          this.setState({ datasets: [{id: 0, name: "None"}]})
+        });
       }
     }
   }
@@ -46,6 +57,6 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = { setDataset }
+const mapDispatchToProps = { setDataset, removeDataset }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatasetsContainer);

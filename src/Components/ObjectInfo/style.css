@@ -19,6 +19,7 @@
 }
 
 .object-input{
+  padding: 0.375rem 0.75rem;
   border : 1px solid black;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;

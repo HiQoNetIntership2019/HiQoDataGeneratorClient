@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { 
     addDatasetValue, 
     removeDatasetValue, 
-    resetDataset, 
+    resetDatasetValues, 
     changeDatasetValue, 
     changeDatasetName 
 } from '../../../../store/table/datasets/customDatasets/actions';
+import { setDataset } from '../../../../store/table/datasets/actions';
 import ModalWindow from '../../../ModalWindow/ModalWindow';
 import Input from '../../../Input/Input';
 import InputWithlabel from '../../../Input/InputWithLabel';
@@ -49,22 +50,23 @@ class CustomDatasetContainer extends React.Component {
         }
         axios.post(this.props.customDatasetAPI, dataset)
             .then((response) => {
-                this.resetDataset();
+                this.props.setDataset({id: response.data, name: dataset.name},this.props.id);
+                this.clearModalWindow();
                 return true;
             })
             .catch((error) => {
-                console.log("error is "+error);
-                alert("Fields cannot be empty!");
+                console.log(error);                
+                alert("Error occured!");
                 return false;
             });
     }
 
     onClose(){
-        this.resetDataset();
+        this.clearModalWindow();
     }
 
-    resetDataset(){
-        this.props.resetDataset();
+    clearModalWindow(){
+        this.props.resetDatasetValues();
         this.setState({reset: !this.state.reset});
     }
 
@@ -110,6 +112,8 @@ class CustomDatasetContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
+        currentDatasets: state.datasets.currentDatasets,
+        currentFieldTypes: state.fieldTypes.currentFieldTypes,
         datasetValues: state.customDataset.datasetValues,
         datasetName: state.customDataset.datasetName,
         customDatasetAPI: state.hostInfo.HOST_NAME +
@@ -120,9 +124,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     addDatasetValue,
     removeDatasetValue,
-    resetDataset,
+    resetDatasetValues,
     changeDatasetName,
-    changeDatasetValue
+    changeDatasetValue,
+    setDataset,
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(CustomDatasetContainer);
