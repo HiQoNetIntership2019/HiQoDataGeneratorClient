@@ -12,7 +12,7 @@ class DatasetsContainer extends React.Component {
   }
 
   render() {
-    let currentDataset = this.props.currentDataset.get(this.props.id);
+    let currentDataset = this.props.currentDatasets.get(this.props.id);
 
     return (
       <div>
@@ -28,18 +28,19 @@ class DatasetsContainer extends React.Component {
   }
 
   componentWillReceiveProps(nextProps){
-  if (nextProps.currentType){
-    axios.get(nextProps.datasetForTypeAPI + nextProps.currentType.id)
-      .then(response => this.setState({datasets: response.data}))
+    let currentType = nextProps.currentFieldTypes.get(this.props.id)
+    if (currentType){
+      axios.get(nextProps.datasetForTypeAPI + currentType.id)
+        .then(response => this.setState({constraints: response.data}));
+      }
     }
   }
-}
 
 
 const mapStateToProps = state => {
   return {
     currentFieldTypes: state.fieldTypes.currentFieldTypes,
-    currentDataset: state.datasets.currents,
+    currentDatasets: state.datasets.currentDatasets,
     datasetForTypeAPI: state.hostInfo.HOST_NAME +
       state.hostInfo.API_FOR_DATASET_DEPENDING_ON_FIELD_TYPE
   }
