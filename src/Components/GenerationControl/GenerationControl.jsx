@@ -10,7 +10,7 @@ export default props => {
       <h3 className="mt-2 mb-2">File type</h3>
       <FileFormats />
       <button type="button"
-        onClick={data => props.action(data)}
+        onClick={async data => await props.action(data)}
         className="btn btn-primary">
         Generate object
       </button>
