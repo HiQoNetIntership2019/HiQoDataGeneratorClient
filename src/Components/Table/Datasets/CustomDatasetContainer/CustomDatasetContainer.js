@@ -6,11 +6,11 @@ import {
     resetDataset, 
     changeDatasetValue, 
     changeDatasetName 
-} from '../../../../store/table/datasets/customDatasets/actions';
-import ModalWindow from '../../../ModalWindow/ModalWindow';
-import Input from '../../../Input/Input';
-import InputWithlabel from '../../../Input/InputWithLabel';
-import RoundButton from '../../../RoundButton/RoundBotton';
+} from 'store/table/datasets/customDatasets/actions';
+import ModalWindow from 'Components/ModalWindow/ModalWindow';
+import Input from 'Components/Input/Input';
+import InputWithlabel from 'Components/Input/InputWithLabel';
+import RoundButton from 'Components/RoundButton/RoundButton';
 import axios from 'axios';
 import './style.css';
 

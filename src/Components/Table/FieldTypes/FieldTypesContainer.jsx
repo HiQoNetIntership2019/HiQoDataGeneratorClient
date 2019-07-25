@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DropDown from '../../DropDown/DropDown';
-import { setFieldType } from '../../../store/table/fieldtypes/actions';
+import DropDown from 'Components/DropDown/DropDown';
+import { setFieldType } from 'store/table/fieldtypes/actions';
 import axios from 'axios';
 
 class FieldTypesContainer extends React.Component {

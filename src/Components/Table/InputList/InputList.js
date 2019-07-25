@@ -1,6 +1,6 @@
 import React from 'react';
 import ListEntryContainer from './ListEntryContainer';
-import { inputTypes } from '../../../constants/ConstantsForConstraintTypes';
+import { inputTypes } from 'constants/ConstantsForConstraintTypes';
 
 class InputList extends React.Component {
   constructor(props) {

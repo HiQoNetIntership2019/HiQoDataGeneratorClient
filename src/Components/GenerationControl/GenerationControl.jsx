@@ -1,6 +1,6 @@
 import React from "react";
 
-import FileFormats from "../FileFormats/FileFormats.jsx";
+import FileFormats from "Components/FileFormats/FileFormats.jsx";
 
 import "./style.css";
 

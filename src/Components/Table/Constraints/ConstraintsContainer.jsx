@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import InputList from '../InputList/InputList.js';
+import InputList from 'Components/Table/InputList/InputList.js';
 import axios from 'axios';
-import { setConstraints } from '../../../store/table/constraints/actions';
+import { setConstraints } from 'store/table/constraints/actions';
 
 class ConstraintsContainer extends React.Component {
   constructor(props) {

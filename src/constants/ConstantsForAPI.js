@@ -1,6 +1,6 @@
 export const API_FOR_ALL_ENCODINGS = '/api/EncodingType';
 export const API_FOR_DATETIMEFORMATS = '/api/DateTimeFormats';
-export const HOST_NAME = "http://localhost:55196"
+export const HOST_NAME = "http://localhost:59365"
 
 export const hostInfo = {
   HOST_NAME,

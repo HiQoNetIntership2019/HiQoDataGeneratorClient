@@ -10,12 +10,11 @@ import { fieldsReducer } from './table/fields/reducers';
 import { constraintsReducer } from './table/constraints/reducers';
 import { fileFromatsReducer } from './file-formats/reducers';
 
-import { hostInfo } from '../constants/ConstantsForAPI';
+import { hostInfo } from 'constants/ConstantsForAPI';
 
 const hostInfoReducer = (state = hostInfo, action) => {
     return state;
 };
-
 
 export default combineReducers({
     fieldTypes: fieldTypesReducer,
