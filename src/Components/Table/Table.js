@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addField, removeField } from '../../store/table/fields/actions';
-import { removeFieldType } from '../../store/table/fieldtypes/actions';
+import { addField, removeField } from 'store/table/fields/actions';
+import { removeFieldType } from 'store/table/fieldtypes/actions';
 import TableRow from './TableRow/TableRow';
 import './style.css';
 

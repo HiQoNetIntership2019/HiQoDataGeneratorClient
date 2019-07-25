@@ -1,5 +1,4 @@
 import React from 'react';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import Header from './Components/Header/Header';

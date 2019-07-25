@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import RadioButtonsGroup from '../RadioButtonsGroup/RadioButtonsGroup.jsx';
-import { setFileFormat } from '../../store/file-formats/actions';
+import RadioButtonsGroup from 'Components/RadioButtonsGroup/RadioButtonsGroup.jsx';
+import { setFileFormat } from 'store/file-formats/actions';
 
 import { ALL_FILE_FORMATS } from './config';
 

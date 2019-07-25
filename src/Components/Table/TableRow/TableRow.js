@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { modifyField } from '../../../store/table/fields/actions';
-import Input from '../../Input/Input';
-import CheckBox from '../../CheckBox/CheckBox';
-import FieldTypesContainer from '../FieldTypes/FieldTypesContainer.jsx';
-import DatasetsContainer from '../Datasets/DatasetsContainer.jsx';
-import ConstraintsContainer from '../Constraints/ConstraintsContainer.jsx';
-import RoundButton from '../../RoundButton/RoundBotton';
+import { modifyField } from 'store/table/fields/actions';
+import Input from 'Components/Input/Input';
+import CheckBox from 'Components/CheckBox/CheckBox';
+import FieldTypesContainer from 'Components/Table/FieldTypes/FieldTypesContainer.jsx';
+import DatasetsContainer from 'Components/Table/Datasets/DatasetsContainer.jsx';
+import ConstraintsContainer from 'Components/Table/Constraints/ConstraintsContainer.jsx';
+import RoundButton from 'Components/RoundButton/RoundButton';
 import './style.css';
 
 class TableRow extends React.Component {

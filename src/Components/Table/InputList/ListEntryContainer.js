@@ -1,10 +1,10 @@
 import React from 'react';
 import TextInput from './TextInput';
 import SelectInput from './SelectInput';
-import { apiForConstraints } from '../../../constants/ConstantsForConstraintTypes';
+import { apiForConstraints } from 'constants/ConstantsForConstraintTypes';
 import './style.css';
 import axios from 'axios';
-import { setOptions, changeConstraintValue, removeConstraint } from '../../../store/table/constraints/actions';
+import { setOptions, changeConstraintValue, removeConstraint } from 'store/table/constraints/actions';
 import { connect } from 'react-redux';
 
 class ListEntryContainer extends React.Component{

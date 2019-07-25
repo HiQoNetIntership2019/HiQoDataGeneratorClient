@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeObjectName, changeObjectsCount } from '../../store/object-info/actions';
+import { changeObjectName, changeObjectsCount } from 'store/object-info/actions';
 
 import ObjectInfo from './ObjectInfo.jsx';
 

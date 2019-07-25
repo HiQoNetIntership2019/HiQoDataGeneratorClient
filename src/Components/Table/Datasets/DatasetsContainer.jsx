@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DropDown from '../../DropDown/DropDown';
+import DropDown from 'Components/DropDown/DropDown';
 import CustomDatasetContainer from './CustomDatasetContainer/CustomDatasetContainer'
-import { setDataset } from '../../../store/table/datasets/actions';
+import { setDataset } from 'store/table/datasets/actions';
 import axios from 'axios';
 
 class DatasetsContainer extends React.Component {
