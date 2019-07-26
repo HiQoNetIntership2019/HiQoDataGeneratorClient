@@ -24,7 +24,7 @@ export const changeDatasetName = (name) => ({
     payload: {name}
 });
 
-export const resetDataset = () => ({
+export const resetDatasetValues = () => ({
     type: RESET_DATASET,
     payload: {}
 });

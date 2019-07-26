@@ -6,8 +6,8 @@ import "./style.css";
 
 export default props => {
   return (
-    <div className="control d-flex flex-column justify-content-end">
-      <h4>File types</h4>
+    <div className="control container text-center">
+      <h3 className="mt-2 mb-2">File type</h3>
       <FileFormats />
       <button type="button"
         onClick={data => props.action(data)}

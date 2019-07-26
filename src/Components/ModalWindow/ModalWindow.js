@@ -15,10 +15,10 @@ class ModalWindow extends React.Component {
         }
     }
 
-    onClickHandler() {
+    async onClickHandler() {
         let needToClose = true;
         if (this.props.onSubmit != undefined){
-            needToClose = this.props.onSubmit();
+            needToClose = await this.props.onSubmit();
         }
         if (needToClose){
             $("#"+this.props.id).modal("hide");

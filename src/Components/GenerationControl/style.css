@@ -1,14 +1,14 @@
 .control {
   margin: 1em 0;
   padding: 0 1em;
-  width: 50%;
 }
 
-.control > h4 {
+.control > h3 {
   margin: 0;
-  align: center;
+  text-align: center;
 }
 
 .control > button {
   margin: 1em 0;
+  width: 30%;
 }
