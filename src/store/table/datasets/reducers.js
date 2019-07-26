@@ -7,7 +7,7 @@ export const datasetsReducer = (state = defaultState, action) => {
     case CHANGE_DATASET:
       return {
         ...state,
-        current: new Map(state.currentDatasets).set(action.payload.fieldId, action.payload.dataset)
+        currentDatasets: new Map(state.currentDatasets).set(action.payload.fieldId, action.payload.dataset)
       }
 
     case REMOVE_DATASET:

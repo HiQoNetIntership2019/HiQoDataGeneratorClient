@@ -6,7 +6,7 @@ export const setDataset = (dataset, fieldId) => ({
   payload: {dataset, fieldId}
 });
 
-export const removeDataset = (dataset, fieldId) => ({
+export const removeDataset = (fieldId) => ({
   type: REMOVE_DATASET,
-  payload: {dataset, fieldId}
+  payload: {fieldId}
 });

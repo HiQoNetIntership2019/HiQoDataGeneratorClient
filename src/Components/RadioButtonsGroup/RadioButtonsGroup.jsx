@@ -15,7 +15,7 @@ export default class RadioButtonsGroup extends React.Component {
         <label className="form-check-label">
           <input type="radio" className="form-check-input"
           name={collectionName ? collectionName : "default"}
-          checked={item.name===name }/>
+          checked={item.name===name } readOnly/>
           {item.name}
         </label>
       </div>

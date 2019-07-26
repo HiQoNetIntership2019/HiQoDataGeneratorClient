@@ -12,12 +12,13 @@ class ConstraintsContainer extends React.Component {
   }
 
   componentDidMount(){
-    if (this.props.currentFieldTypes.get(this.props.id)){
-      this.getConstraintsByFieldType(this.props.id);
+    const fieldType = this.props.currentFieldTypes.get(this.props.id);
+    if (fieldType){
+      this.getConstraintsByFieldType(fieldType.id);
     }
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps){    
     let fieldId = this.props.id;
     if (!this.props.currentFieldTypes.get(fieldId)) return;
     let fieldTypeId = this.props.currentFieldTypes.get(fieldId).id;

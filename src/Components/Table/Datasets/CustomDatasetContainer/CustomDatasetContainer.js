@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { 
     addDatasetValue, 
     removeDatasetValue, 
-    resetDataset, 
+    resetDatasetValues, 
     changeDatasetValue, 
     changeDatasetName 
 } from 'store/table/datasets/customDatasets/actions';
+import { setDataset } from 'store/table/datasets/actions';
 import ModalWindow from 'Components/ModalWindow/ModalWindow';
 import Input from 'Components/Input/Input';
 import InputWithlabel from 'Components/Input/InputWithLabel';
@@ -42,29 +43,36 @@ class CustomDatasetContainer extends React.Component {
         this.props.changeDatasetValue(index,value);
     }
 
-    onSubmit(){
+    async saveDataset(dataset){
+        try {
+            const response = await axios.post(this.props.customDatasetAPI, dataset);
+            this.props.setDataset({ id: response.data, name: dataset.name }, this.props.id);
+            this.props.onSave(dataset);
+            this.clearModalWindow();
+            return true;
+        }
+        catch (error) {
+            console.log(error);
+            alert("Error occured!");
+            return false;
+        }
+    }
+
+    async onSubmit(){
+        let result = false;
         let dataset = {
             name: this.props.datasetName,
             values: this.props.datasetValues.map(function(item){ return {value: item.value} })
         }
-        axios.post(this.props.customDatasetAPI, dataset)
-            .then((response) => {
-                this.resetDataset();
-                return true;
-            })
-            .catch((error) => {
-                console.log("error is "+error);
-                alert("Fields cannot be empty!");
-                return false;
-            });
+        return await this.saveDataset(dataset);
     }
 
     onClose(){
-        this.resetDataset();
+        this.clearModalWindow();
     }
 
-    resetDataset(){
-        this.props.resetDataset();
+    clearModalWindow(){
+        this.props.resetDatasetValues();
         this.setState({reset: !this.state.reset});
     }
 
@@ -110,6 +118,8 @@ class CustomDatasetContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
+        currentDatasets: state.datasets.currentDatasets,
+        currentFieldTypes: state.fieldTypes.currentFieldTypes,
         datasetValues: state.customDataset.datasetValues,
         datasetName: state.customDataset.datasetName,
         customDatasetAPI: state.hostInfo.HOST_NAME +
@@ -120,9 +130,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
     addDatasetValue,
     removeDatasetValue,
-    resetDataset,
+    resetDatasetValues,
     changeDatasetName,
-    changeDatasetValue
+    changeDatasetValue,
+    setDataset,
 };
   
 export default connect(mapStateToProps, mapDispatchToProps)(CustomDatasetContainer);
