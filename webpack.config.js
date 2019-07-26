@@ -1,17 +1,32 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    app: "./src/index.js",
+    vendor: "./src/vendor.js"
+  },
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index_bundle.js"
+    filename: "[name].js"
   },
   resolve: {
     modules: [path.resolve(__dirname, "src"), "node_modules"]
   },
   module: {
     rules: [
+      {
+        test: require.resolve('jquery'),
+        use: [{
+            loader: 'expose-loader',
+            options: '$'
+        },
+        {
+            loader: 'expose-loader',
+            options: 'jQuery'
+        }]
+      },
       {
        test: /\.(js|jsx)$/,
        exclude: /node_modules/,
@@ -33,7 +48,7 @@ module.exports = {
       }
     ]
   },
-  plugins: [
+  plugins: [ 
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "./index.html"
