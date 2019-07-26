@@ -1,10 +1,11 @@
 import { 
   SET_CONSTRAINTS, 
   CHANGE_CONSTRAINT_VALUE, 
-  REMOVE_CONSTRAINT, 
-  SET_CONSTRAINTS_STATE,
+  REMOVE_CONSTRAINT,
   SET_OPTIONS
 } from "./actions";
+
+import changeConstraints  from "./constraintsHelpers";
 
 const defaultState = {
   constraints: new Map(),
@@ -22,8 +23,9 @@ export const constraintsReducer = (state = defaultState, action) => {
       }
     }
     case CHANGE_CONSTRAINT_VALUE: {
-      let fieldId = action.payload.fieldId;
-      let constraints = new Map(state.constraints.get(fieldId)).set(action.payload.constraint.id, action.payload.constraint);
+      const fieldId = action.payload.fieldId;
+      let constraints = new Map(state.constraints.get(fieldId));
+      constraints = changeConstraints(constraints, action.payload.constraint);
       return {
         ...state,
         constraints: new Map(state.constraints).set(fieldId, constraints)
@@ -35,14 +37,6 @@ export const constraintsReducer = (state = defaultState, action) => {
       let removedConstraint = state.constraints.get(fieldId).get(constraintId);
       removedConstraint.isIncluded = false;
       let constraints = new Map(state.constraints.get(fieldId)).set(constraintId, removedConstraint);
-      return {
-        ...state,
-        constraints: new Map(state.constraints).set(fieldId, constraints)
-      }
-    }
-    case SET_CONSTRAINTS_STATE: {
-      let fieldId = action.payload.fieldId;
-      let constraints = new Map(state.constraints.get(fieldId));
       return {
         ...state,
         constraints: new Map(state.constraints).set(fieldId, constraints)

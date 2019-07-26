@@ -29,6 +29,9 @@ class ListEntryContainer extends React.Component{
 
   changeConstraintValue(value){
     let constraint = this.props.constraint;
+    if(this.props.inputType == "number"){
+      value = parseInt(value);
+    }
     constraint.value = value || constraint.value;
     constraint.isIncluded = true;
     this.props.changeConstraintValue(constraint, this.props.id);
