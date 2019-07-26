@@ -1,4 +1,4 @@
-import store from '../../store/index';
+import store from 'store/index';
 import axios from 'axios';
 
 const createRequestData = (data, url) => {
