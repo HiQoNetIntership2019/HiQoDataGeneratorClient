@@ -20,13 +20,6 @@ export default class ObjectInfo extends React.Component {
           <input type="text" className="object-input" value={name}
             onChange={e => changeObjectName(e.target.value)}/>
         </div>
-        <div className=" input-group col-12 col-md-6">
-          <div className="input-group-prepend">
-            <span className="input-group-text input-label">Objects Count</span>
-          </div>
-          <input type="number" className="object-input" value={count}
-            onChange={e => changeObjectsCount(e.target.value)}/>
-        </div>
       </div>
     );
   }
