@@ -5,8 +5,19 @@
     width: 100%;
 }
 
+#dropdownMenuButtonText {
+    width: 92%;
+}
+
 .dropdown-menu {
     width: 100%;
+}
+
+.dropdown-menu-item{
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .scrollable-menu {
