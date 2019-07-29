@@ -4,7 +4,7 @@ import './style.css';
 export default function SelectInput(props) {
     let options = [];
     if (props.isIncluded && props.options){
-        options = props.options.map((item) => <option key={item.id} value={item.name}>{item.name}</option>);
+        options = props.options.map((item) => <option key={item.id} value={item.name || item.value}>{item.name || item.value}</option>);
     }
     return (
       <div className="input-group mb-3 input-group-sm">

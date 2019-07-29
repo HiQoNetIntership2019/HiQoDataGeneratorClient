@@ -1,5 +1,6 @@
-export const API_FOR_ALL_ENCODINGS = '/api/EncodingType';
-export const API_FOR_DATETIMEFORMATS = '/api/DateTimeFormats';
+export const API_FOR_ALL_ENCODINGS = 'EncodingType';
+export const API_FOR_DATETIMEFORMATS = 'DateTimeFormats';
+export const API_FOR_TIMEZONES = 'Timezone';
 export const HOST_NAME = "https://localhost:5001/api/"
 
 export const hostInfo = {
@@ -11,5 +12,6 @@ export const hostInfo = {
   API_FOR_CONSTRAINTS_BY_FIELD_TYPE: 'Constraints/fieldtype/',
   API_FOR_CUSTOM_DATASETS: 'customdatasets/withId',
   API_FOR_ALL_ENCODINGS,
-  API_FOR_DATETIMEFORMATS
+  API_FOR_DATETIMEFORMATS,
+  API_FOR_TIMEZONES
 }
