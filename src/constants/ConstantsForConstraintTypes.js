@@ -1,4 +1,4 @@
-import { HOST_NAME, API_FOR_ALL_ENCODINGS, API_FOR_DATETIMEFORMATS } from './ConstantsForAPI';
+import { HOST_NAME, API_FOR_ALL_ENCODINGS, API_FOR_DATETIMEFORMATS, API_FOR_TIMEZONES } from './ConstantsForAPI';
 
 export const inputTypes = new Map([
     ['min value', 'number'],
@@ -23,5 +23,6 @@ export const inputTypes = new Map([
 
 export const apiForConstraints = new Map([
     ['encoding', HOST_NAME + API_FOR_ALL_ENCODINGS],
-    ['format', HOST_NAME + API_FOR_DATETIMEFORMATS]
+    ['format', HOST_NAME + API_FOR_DATETIMEFORMATS],
+    ['timezones', HOST_NAME + API_FOR_TIMEZONES]
 ]);
