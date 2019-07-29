@@ -31,7 +31,7 @@ class DatasetsContainer extends React.Component {
           defaultItem="None"
           />
           {currentType && (currentType.name.toLowerCase() === "string" || currentType.name.toLowerCase() === "enum") &&
-            <CustomDatasetContainer onSave={(dataset) => this.addDataset(dataset)} id={this.props.id}/> 
+            <CustomDatasetContainer onSave={(dataset) => this.addDataset(dataset)} id={this.props.id}/>
           }
       </div>
     );

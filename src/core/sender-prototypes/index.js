@@ -24,20 +24,12 @@ const sendGenerationRequest = async (object, url, extension) => {
   }
 };
 
-export default async () => {
-  const state = store.getState();
+export default async prototype => {
+  const storeState = store.getState();
 
-  let {
-    objectInfo: {name, count},
-    hostInfo: {HOST_NAME, API_FOR_OBJECT_GENERATION}
-  } = state;
+  const {HOST_NAME, API_FOR_OBJECT_GENERATION } = storeState.hostInfo;
+  const extension = storeState.fileFormats.name;
+  const urlForAPI = HOST_NAME + API_FOR_OBJECT_GENERATION + extension;
 
-  let extension = state.fileFormats.name;
-  let objectForGeneration = {
-    name,
-    fields: []
-  }
-
-  return await sendGenerationRequest(objectForGeneration,
-    HOST_NAME + API_FOR_OBJECT_GENERATION + extension, extension);
-}
+  return await sendGenerationRequest(prototype, urlForAPI, extension);
+};
