@@ -24,12 +24,11 @@ const sendGenerationRequest = async (object, url, extension) => {
   }
 };
 
-export default async prototype => {
+export default async (prototype, count) => {
   const storeState = store.getState();
 
   const {HOST_NAME, API_FOR_OBJECT_GENERATION } = storeState.hostInfo;
   const extension = storeState.fileFormats.name;
-  const urlForAPI = HOST_NAME + API_FOR_OBJECT_GENERATION + extension;
-
+  const urlForAPI = HOST_NAME + API_FOR_OBJECT_GENERATION + extension + '/' + count;
   return await sendGenerationRequest(prototype, urlForAPI, extension);
 };
