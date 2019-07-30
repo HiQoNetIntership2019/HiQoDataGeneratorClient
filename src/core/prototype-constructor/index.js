@@ -43,7 +43,10 @@ export default () => {
   });
 
   return {
-    name,
-    fields: fieldPrototypes
+    obj: {
+      name,
+      fields: fieldPrototypes
+    },
+    count
   }
 }
