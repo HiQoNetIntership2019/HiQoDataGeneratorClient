@@ -26,3 +26,7 @@
 .invalid-text{
     color: red;
 }
+
+.text-hidden{
+    display: none;
+}
