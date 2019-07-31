@@ -20,5 +20,9 @@
 }
 
 .invalid{
-    background-Color : #E19595;
+    border: 2px solid red;
+}
+
+.invalid-text{
+    color: red;
 }

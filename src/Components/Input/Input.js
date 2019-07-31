@@ -16,10 +16,10 @@ class Input extends React.Component {
   render() {
     return (
       <div className="input-group">
-        <input type="text" className="form-control" placeholder={this.props.placeholder} 
+        <input type="text" id={this.props.id} className="form-control" placeholder={this.props.placeholder} 
           value={this.state.inputValue} 
           onChange={this.updateInputValue} 
-          onBlur={()=> this.props.onBlur(this.state.inputValue)}
+          onBlur={()=> this.props.onBlur(this.state.inputValue)} 
         />
       </div>    
     );

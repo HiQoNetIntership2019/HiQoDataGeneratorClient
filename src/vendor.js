@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap';
-import 'popper.js/dist/popper';
+window.Popper = require('popper.js').default;
+
 import "jquery";
 
