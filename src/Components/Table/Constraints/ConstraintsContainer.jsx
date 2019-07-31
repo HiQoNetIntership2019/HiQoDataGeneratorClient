@@ -50,13 +50,14 @@ class ConstraintsContainer extends React.Component {
   render() {
     let items = [];
     if (this.props.currentConstraints.get(this.props.id)){
-      console.log(this.props.currentConstraints.get(this.props.id));
+      //console.log(this.props.currentConstraints.get(this.props.id));
       items = Array.from(this.props.currentConstraints.get(this.props.id));
       items = items.reduce((result, item) => result.concat(item[1]), []);
     }
 
     return (
-      <InputList 
+      <InputList
+        id={this.props.id} 
         items={items}
       />
     );

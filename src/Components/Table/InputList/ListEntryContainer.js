@@ -30,7 +30,8 @@ class ListEntryContainer extends React.Component{
   changeConstraintValue(value){
     let constraint = this.props.constraint;
     if(this.props.inputType == "number"){
-      value = parseInt(value);
+      let result = parseInt(value);
+      value = isNaN(result) ? undefined : result;
     }
 
     constraint.value = value;

@@ -11,7 +11,7 @@ class InputList extends React.Component {
     let entries = this.props.items.map(item => 
       <ListEntryContainer 
         key={item.id} 
-        id={this.props.id} 
+        id={this.props.id+"-"+item.id} 
         constraint = {item}
         removeValue={() => this.props.removeValue(item)} 
         isIncluded={item.isIncluded}
