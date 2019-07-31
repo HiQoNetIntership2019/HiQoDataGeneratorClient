@@ -1,4 +1,4 @@
-#dropdownMenuButton {
+.dropdown-button {
     background-color: white;
     color: black;
     border-color : #ced4da;
@@ -14,7 +14,7 @@
 }
 
 .dropdown-menu-item{
-    display: inline-block;
+    display: inline;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

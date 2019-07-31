@@ -17,11 +17,13 @@ class FieldTypesContainer extends React.Component {
     let currentFieldType = this.props.currentTypes.get(fieldId);
     return (
       <div>
-        <DropDown selectItem={item => this.props.setFieldType(item, fieldId)}
+        <DropDown 
+          id={"field-type-"+fieldId}
+          selectItem={item => this.props.setFieldType(item, fieldId)}
           currentItem={currentFieldType ? currentFieldType.name : null}
           items={this.state.fields}
           defaultItem="Field types" />
-        <span id={"field-type-span-"+fieldId} className="invalid-text text-hidden"></span>
+        <span id={"field-type-span-"+fieldId} className="invalid-text text-hidden">Cannot be empty</span>
       </div>
     );
   }
