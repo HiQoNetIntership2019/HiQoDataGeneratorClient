@@ -18,3 +18,7 @@
 .main-table > tbody > tr:last-child > td:nth-last-child(2) {
     border-bottom-right-radius: 10px;    
 }
+
+.invalid{
+    background-Color : #E19595;
+}
