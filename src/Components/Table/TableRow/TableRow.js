@@ -7,8 +7,6 @@ import FieldTypesContainer from 'Components/Table/FieldTypes/FieldTypesContainer
 import DatasetsContainer from 'Components/Table/Datasets/DatasetsContainer.jsx';
 import ConstraintsContainer from 'Components/Table/Constraints/ConstraintsContainer.jsx';
 import RoundButton from 'Components/RoundButton/RoundButton';
-import validateInput from 'core/validators/inputValidator';
-import { Regexes } from 'constants/Regexes';
 import './style.css';
 
 class TableRow extends React.Component {
@@ -28,7 +26,7 @@ class TableRow extends React.Component {
               <Input 
                 id = {'field-name-'+fieldId} 
                 placeholder="Field Name" 
-                onBlur = { value => this.CheckField(value, Regexes.FIELD_NAME) }/>            
+                onBlur = { value => this.props.modifyField(fieldId, value, data.isNotNull) }/>            
               <span id={"field-name-span-"+fieldId} className="invalid-text text-hidden">Valid symbols: [ a-z,A-Z,0-9,_ ]</span>
             </td>
             <td className="col-2"><FieldTypesContainer id={fieldId}/></td>
@@ -48,14 +46,6 @@ class TableRow extends React.Component {
             </td>
         </tr>
     );
-  }
-
-  CheckField(value, regex){
-    let fieldId = this.props.id;
-    let inputId = "field-name-"+fieldId;
-    let spanId = "field-name-span-"+fieldId
-    let callback = () => this.props.modifyField(fieldId, value, this.props.data.isNotNull);
-    validateInput(value, regex, inputId, spanId, callback);
   }
 } 
 

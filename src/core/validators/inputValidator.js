@@ -1,4 +1,4 @@
-export default function validateInput(value, regex, inputId, spanId, callback) {
+export default function validateInput(value, regex, inputId, spanId) {
     var regexp = new RegExp(regex);
 
     var input = document.getElementById(inputId);
@@ -7,10 +7,11 @@ export default function validateInput(value, regex, inputId, spanId, callback) {
     {
       input.classList.remove("invalid");
       span.classList.add("text-hidden");
-      callback();
+      return true;
     }
     else{
       input.classList.add("invalid");
       span.classList.remove("text-hidden");
+      return false;
     }
 }

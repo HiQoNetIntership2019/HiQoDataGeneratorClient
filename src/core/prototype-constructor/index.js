@@ -1,8 +1,5 @@
 import store from 'store/index';
 
-
-
-
 export default () => {
   const state = store.getState();
   const {
