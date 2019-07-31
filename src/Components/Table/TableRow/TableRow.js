@@ -51,7 +51,7 @@ class TableRow extends React.Component {
 
   FieldNameCheck(value){
     let {data, id} = this.props;
-    var regexp = new RegExp("\\w", "g");
+    var regexp = new RegExp("^\\w{1,150}$");
 
     var field = document.getElementById('field-name-'+this.props.id);
      

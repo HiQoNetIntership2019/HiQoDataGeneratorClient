@@ -8,7 +8,7 @@ export default class ObjectInfo extends React.Component {
   }
 
   render(){
-    let {name, count} = this.props;
+    let { name, count } = this.props;
     let { changeObjectName, changeObjectsCount } = this.props;
 
     return (
@@ -24,7 +24,7 @@ export default class ObjectInfo extends React.Component {
           <div className="input-group-prepend">
             <span className="input-group-text input-label">Objects Count</span>
           </div>
-          <input type="number" className="object-input" value={count}
+          <input type="number" className="object-input" value={count} min={1} max={1000}
             onChange={e => changeObjectsCount(e.target.value)}/>
         </div>
       </div>

@@ -1,12 +1,8 @@
 export const API_FOR_ALL_ENCODINGS = 'EncodingType';
 export const API_FOR_DATETIMEFORMATS = 'DateTimeFormats';
 export const API_FOR_TIMEZONES = 'Timezone';
-<<<<<<< HEAD
 export const API_FOR_REGEX = 'Regex';
 export const HOST_NAME = "https://localhost:5001/api/"
-=======
-export const HOST_NAME = "https://localhost:53007/api/"
->>>>>>> add label with naming rules for input
 
 export const hostInfo = {
   HOST_NAME,
