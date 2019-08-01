@@ -25,7 +25,8 @@ class FieldTypesContainer extends React.Component {
   componentDidMount(){
     axios.get(this.props.allFieldsAPI)
     .then(response => {
-      this.setState({ fields : response.data });
+      let fieldTypes = response.data.filter(item => item.name != "Time");
+      this.setState({ fields : fieldTypes });
     })
     .catch(error  => {
       console.log(error);
