@@ -18,7 +18,7 @@ export default function TextInput(props) {
           <input type={props.inputType} className="form-control" id={`input-constraint-${props.id}`} disabled/>
         )}
       </div>
-      <span id={`input-constraint-span-${props.id}`} className="invalid-text text-hidden">Cannot be empty</span>
+      <span id={`input-constraint-span-${props.id}`} className="invalid-text text-hidden">Should contain only numbers</span>
     </div>
   );
 }

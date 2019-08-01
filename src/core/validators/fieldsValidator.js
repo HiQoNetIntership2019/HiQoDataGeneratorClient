@@ -1,5 +1,5 @@
 import store from 'store/index';
-import validateInput from 'core/validators/inputValidator';
+import { validateInput } from 'core/validators/inputValidator';
 import validateFieldType from 'core/validators/fieldTypeValidator';
 import validateConstraints from 'core/validators/constraintsValidator';
 import { Regexes } from 'constants/Regexes';
