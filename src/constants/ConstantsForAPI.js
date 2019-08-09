@@ -2,7 +2,7 @@ export const API_FOR_ALL_ENCODINGS = 'EncodingType';
 export const API_FOR_DATETIMEFORMATS = 'DateTimeFormats';
 export const API_FOR_TIMEZONES = 'Timezone';
 export const API_FOR_REGEX = 'Regex';
-export const HOST_NAME = "https://localhost:5001/api/"
+export const HOST_NAME = "https://localhost:44399/api/"
 
 export const hostInfo = {
   HOST_NAME,

@@ -1,8 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require('webpack');
+const webpack = require("webpack");
+const dotenv = require('dotenv').config();
+const env = dotenv.parsed;
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev; }, {});
+
+
 
 module.exports = {
+  
   entry: {
     vendor: "./src/vendor.js",
     app: "./src/index.js"
@@ -52,6 +60,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
       filename: "./index.html"
-    })
+    }),
+    new webpack.DefinePlugin(envKeys)
   ]
 };
+
+
+
