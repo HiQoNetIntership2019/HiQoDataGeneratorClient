@@ -24,6 +24,7 @@ const sendGenerationRequest = async (object, url, extension) => {
   }
 };
 
+
 export default async (prototype, count) => {
   const storeState = store.getState();
 
