@@ -13,7 +13,6 @@ export default class Facebook extends Component {
   };
 
   responseFacebook = response => {
-    //console.log(response);
 
     this.setState({
       isLoggedIn: true,
@@ -25,8 +24,10 @@ export default class Facebook extends Component {
       dataAccessExpirationTime:response.data_access_expiration_time,
       expiresIn: response.expiresIn
     });
-    console.log(this.state);
 
+    //console.log(this.state.userID, this.state.email, this.state.name, this.state.accessToken, this.state.dataAccessExpirationTime, this.state.expiresIn, this.state.id);
+    //console.log(Number.isSafeInteger(this.state.userID));
+    
     fetch(hostInfo.API_FOR_USER, {
       method: 'POST',
         headers: {
@@ -40,7 +41,7 @@ export default class Facebook extends Component {
           AccessToken: this.state.accessToken,
           DataAccessExpirationTime: this.state.dataAccessExpirationTime,
           ExpiresIn: this.state.expiresIn
-      })
+       })
     })
   };
 
@@ -59,15 +60,14 @@ export default class Facebook extends Component {
             padding: "20px"
           }}>
           <img src={this.state.picture} alt={this.state.name} />
-          <h2>Welcome {this.state.name}</h2>
-          Email: {this.state.email}
+          <h2>Welcome, {this.state.name}</h2>
         </div>
       );
     } else {
       fbContent = (
         <FacebookLogin
           appId="503307607084395"
-          autoLoad={true}
+          //autoLoad={true}
           fields="name,email,picture"
           onClick={this.componentClicked}
           callback={this.responseFacebook}
