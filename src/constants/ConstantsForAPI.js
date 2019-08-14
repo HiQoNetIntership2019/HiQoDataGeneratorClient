@@ -7,6 +7,7 @@ export const HOST_NAME = "https://localhost:44383/api/"
 export const hostInfo = {
   HOST_NAME,
   API_FOR_USER: HOST_NAME + 'User',
+  API_FOR_USER_ACCESS_TOKEN_CHECK: HOST_NAME + 'User/Check/',
   API_FOR_ALL_TYPES: 'types',
   API_FOR_DATASET_DEPENDING_ON_FIELD_TYPE: 'datasets/ByTypeId/',
   API_FOR_OBJECT_GENERATION: 'DataGenerator/',
