@@ -19,6 +19,7 @@ export default class Facebook extends Component {
 
   responseFacebook = response => {
     this.setState({
+      isLoggedIn: true,
       userId: response.userID,
       userName: response.name,
       userEmail: response.email,
@@ -78,7 +79,7 @@ export default class Facebook extends Component {
             background: "#f4f4f4",
             padding: "20px"
           }}>
-          <img src={this.state.picture} alt={this.state.userName} />
+          <img src={this.state.userPicture} alt={this.state.userName} />
           <h2>Welcome, {this.state.userName}</h2>
         </div>
       );
