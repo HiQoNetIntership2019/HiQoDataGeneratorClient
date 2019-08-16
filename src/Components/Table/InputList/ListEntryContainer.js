@@ -30,7 +30,7 @@ class ListEntryContainer extends React.Component{
   changeConstraintValue(value){
     let constraint = this.props.constraint;
     if(this.props.inputType == "number"){
-      value = parseInt(value);
+      value = value * 1;
     }
 
     constraint.value = value;
